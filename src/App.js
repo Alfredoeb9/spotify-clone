@@ -3,11 +3,15 @@ import './App.css';
 import Login from './Login';
 import { getTokenFromUrl } from './spotify';
 import SpotifyWebApi from 'spotify-web-api-js';
+import Player from './Player';
+import { useStateValue } from './StateProvider';
 
 const spotify = new SpotifyWebApi();
 
 function App() {
   const [token, setToken] = useState(null);
+  const [{ }, dispatch] = useStateValue();
+
 
   // Run code based on a given condition
   useEffect(() => {
@@ -23,7 +27,10 @@ function App() {
       spotify.setAccessToken(_token);
       // fetch information from spotify account
       spotify.getMe().then(user => {
-
+        dispatch({
+          type: 'SET_USER',
+          user: user
+        });
       });
     }
   }, []);
