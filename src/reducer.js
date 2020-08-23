@@ -33,12 +33,12 @@ const reducer = (state, action) => {
           token: action.token,
         };
 
-      case "SET_TOKEN":
+      case "SET_PLAYLISTS":
         return {
           // keep what the state is
           // update it was the user playlists
           ...state,
-          token: action.token,
+          playlists: action.playlists,
         };
       // return normal state if nothing happens
       default: 
