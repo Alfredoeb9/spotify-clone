@@ -9,8 +9,10 @@ import { useStateValue } from './StateProvider';
 const spotify = new SpotifyWebApi();
 
 function App() {
-  const [token, setToken] = useState(null);
-  const [{ }, dispatch] = useStateValue();
+  // Grab anything from the data layer in 
+  // first variable, Disptach lets you update it with values
+  // grab user and token from data layer
+  const [{ user, token }, dispatch] = useStateValue();
 
 
   // Run code based on a given condition
@@ -22,11 +24,18 @@ function App() {
     const _token = hash.access_token;
 
     if(_token) {
-      setToken(_token);
+
+      dispatch({
+        type:'SET_TOKEN',
+        // pass in a payload of token
+        token: _token,
+      });
+  
       // give spotify key to react
       spotify.setAccessToken(_token);
       // fetch information from spotify account
       spotify.getMe().then(user => {
+        // pop into the datalayer
         dispatch({
           type: 'SET_USER',
           user: user
@@ -34,6 +43,8 @@ function App() {
       });
     }
   }, []);
+
+  console.log(token);
 
   return (
     <div className="app">
@@ -44,7 +55,6 @@ function App() {
           <Login />
         )
       }
-      <Login />
     </div>
   );
 }
