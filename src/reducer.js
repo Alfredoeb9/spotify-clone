@@ -27,8 +27,16 @@ const reducer = (state, action) => {
       // whenever you receive a set token event
       case 'SET_TOKEN':
         return {
-          // keep whatevery is in the current state but
+          // keep what ever is in the current state but
           // ADD TOKEN -> pushed into the state
+          ...state,
+          token: action.token,
+        };
+
+      case "SET_TOKEN":
+        return {
+          // keep what the state is
+          // update it was the user playlists
           ...state,
           token: action.token,
         };
