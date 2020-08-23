@@ -51,8 +51,6 @@ function App() {
     }
   }, []);
 
-  console.log(token);
-
   return (
     <div className="app">
       {
