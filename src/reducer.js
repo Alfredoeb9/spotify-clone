@@ -5,7 +5,7 @@ export const initialState = {
   playlists: [],
   playing: false,
   item: null,
-  token: 'BQCSCd7nVPUiig_pnWg-GMNQJ1PreUuEz-IjYk2OuGFluBTfp-Lj2EnJ6E5LpiCoMU8OVP648GgvJaFTMZ3hh0rvEjMhfWdF91TH_Enub84xy5553nyZmDQBGNwQ98BG-lJ3CEfxiILz-k768cWuav8b0c1_-mM1nB9JtF74DBx15qXY'
+  // token: 'BQCSCd7nVPUiig_pnWg-GMNQJ1PreUuEz-IjYk2OuGFluBTfp-Lj2EnJ6E5LpiCoMU8OVP648GgvJaFTMZ3hh0rvEjMhfWdF91TH_Enub84xy5553nyZmDQBGNwQ98BG-lJ3CEfxiILz-k768cWuav8b0c1_-mM1nB9JtF74DBx15qXY'
 };
 
 // reducer just listens to actions
