@@ -48,14 +48,33 @@ function App() {
           playlists: playlists,
         });
       });
+
+      spotify.getPlaylist('3dNTeAq6tgXXyeLyfvdI2P').then(response => 
+        dispatch({
+          type: "SET_DISCOVER_WEEKLY",
+          discover_weekly: response,
+        })
+      );
+
+      spotify.getMyTopArtists().then((response) =>
+        dispatch({
+          type: "SET_TOP_ARTISTS",
+          top_artists: response,
+        })
+      );
+
+      dispatch({
+        type: "SET_SPOTIFY",
+        spotify: spotify,
+      });
     }
-  }, []);
+  }, [token, dispatch]);
 
   return (
     <div className="app">
       {
         token ? (
-          <Player />
+          <Player spotify={spotify} />
         ) : (
           <Login />
         )
